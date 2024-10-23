@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useDrivePicker from "react-google-drive-picker";
 import drive from "./assets/google-drive.svg";
 import upload from "./assets/upload.svg";
+
 function App() {
   const [openPicker, authResponse] = useDrivePicker();
   const [fileData, setFileData] = useState([]);
@@ -9,12 +10,7 @@ function App() {
 
   const handleOpenPicker = () => {
     openPicker({
-      clientId:
-        "404879240094-od09a0fjk17g1qnh39otkh00umo3832m.apps.googleusercontent.com",
-      developerKey: "AIzaSyC84CZuJXJwe-RsOTFkeeFrcqkSaJJFnnE",
-      viewId: "DOCS",
-      token:
-        "ya29.a0AcM612za8NTlaOXP9VhrEAGWoeQKCg4b14PvgLGlsQWblojAmY5o3f4awNoUitls8mmpWPMAwVgioRJpbUyx6wuyKIeoHdXYGJ58SeQGxoaMSdVq0PltkLjdrMIR7nKN19gcD_1ZKVmwJL1DcYxU8iQqPACr3JoSqIA8OwOsaCgYKAUYSARASFQHGX2MiuRKiOMakV7sPISGLgn4prg0175",
+    
       showUploadView: true,
       showUploadFolders: true,
       supportDrives: true,
