@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useDrivePicker from "react-google-drive-picker";
 import drive from "./assets/google-drive.svg";
-// import upload from "./assets/upload.svg";
+import upload from "./assets/upload.svg";
 function App() {
   const [openPicker, authResponse] = useDrivePicker();
   const [fileData, setFileData] = useState([]);
@@ -32,16 +32,19 @@ function App() {
 
   return (
     <div className="w-screen h-screen flex items-center justify-center">
-      <div
-        onClick={() => handleOpenPicker()}
-        className="   border-2  rounded-md cursor-pointer border-black flex p-12 flex-col items-center justify-center "
-      >
+      <div className="   border-2  rounded-md  border-black flex p-12 flex-col items-center justify-center ">
         <div className=" border-dashed rounded-md  border-gray-500  flex flex-col items-center p-12 border-2 justify-center ">
-          {/* <img width={25} src={upload} alt="" /> */}
+          {/*  */}
           <img width={70} src={drive} alt="" />
 
-          <button className="bg-blue-500 rounded-xl text-white  px-8 py-2  font-semibold tracking-wide">
-            Click here to upload files
+          <button
+            onClick={() => handleOpenPicker()}
+            className="bg-blue-500 flex items-center gap-4 hover:bg-blue-400 transition-all duration-300 rounded-xl text-white  px-8 py-2  font-semibold tracking-wide"
+          >
+            Click here to upload files{" "}
+            <span>
+              <img className="text-white" width={25} src={upload} alt="" />
+            </span>
           </button>
 
           {fileData && fileData.action === "picked" ? (
@@ -52,6 +55,11 @@ function App() {
             >
               <p>Click here to download or see the file</p>
             </a>
+          ) : (
+            <></>
+          )}
+          {fileData && fileData.length > 0 ? (
+            <p>{fileData.docs[0].name}</p>
           ) : (
             <></>
           )}
